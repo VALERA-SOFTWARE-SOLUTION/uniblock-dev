@@ -6,8 +6,8 @@
   "scripts": {
     "run:chrome": "npx cypress run --browser chrome",
     "run:edge": "npx cypress run --browser edge",
-    "open:chrome": "npx cypress run --browser chrome",
-    "open:edge": "npx cypress run --browser edge"
+    "open:chrome": "npx cypress open --browser chrome",
+    "open:edge": "npx cypress open --browser edge"
   },
   "eslintConfig": {
     "plugins": [
