@@ -1,6 +1,6 @@
-# Template Cypress Project
+# Uniblock
 
-This repository contains Cypress tests.
+Live product: https://www.uniblock.dev/
 
 ## Setup
 
