@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import 'cypress-wait-until';
+import auth from "../utils/Auth"
 
 Cypress.Commands.add(
     'clearFirebaseAuth',
@@ -35,4 +36,15 @@ Cypress.Commands.add(
                 resolve();
             };
         })
+)
+
+Cypress.Commands.add(
+    'visitWithFreshLogin',
+    (...credentials) => {
+        auth.clearLoginSession();
+        auth.interceptPreLoginLastCall();
+        cy.visit("/");
+        auth.waitForPreLoginLastCall();
+        auth.login(...credentials);
+    }
 )
