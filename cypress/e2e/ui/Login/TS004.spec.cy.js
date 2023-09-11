@@ -6,6 +6,8 @@ describe("Login Scenario: TC004", () => {
         const invalidPassword = faker.internet.password();
 
         cy.section("Visit the login page");
+        auth.clearLoginSession();
+        auth.interceptPreLoginLastCall();
         cy.visit("/");
         auth.login(undefined, invalidPassword, false);
 

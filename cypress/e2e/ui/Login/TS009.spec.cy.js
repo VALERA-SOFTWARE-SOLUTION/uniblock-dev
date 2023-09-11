@@ -6,6 +6,8 @@ describe("Login Scenario: TC009", () => {
         const invalidEmail = faker.internet.email();
 
         cy.section("Visit the login page");
+        auth.clearLoginSession();
+        auth.interceptPreLoginLastCall();
         cy.visit("/");
         auth.login(invalidEmail, undefined, false);
 
