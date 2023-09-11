@@ -1,6 +1,7 @@
 const login = (
     email = Cypress.env("testEmail"),
-    password = Cypress.env("testPassword")
+    password = Cypress.env("testPassword"),
+    validLogin = true
 ) => {
     interceptProjectByUserAPI();
     const txtEmail = "input[name='email']";
@@ -12,7 +13,7 @@ const login = (
     cy.get(txtPword).clear();
     cy.get(txtPword).type(password);
     cy.get(btnSubmit).click();
-    waitForProjectByUserAPI();
+    if(validLogin){ waitForProjectByUserAPI(); }
 }
 
 const clearLoginSession = () => {
